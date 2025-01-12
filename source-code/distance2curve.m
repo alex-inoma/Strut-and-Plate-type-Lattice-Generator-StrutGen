@@ -1,11 +1,5 @@
 function [xy,distance,t_a] = distance2curve(curvexy,mapxy,interpmethod)
 
-%% Function use in lattgen
-%
-% Called by:
-% a. Curved Implicit Model
-% b. 
-
 % distance2curve: minimum distance from a point to a general curvilinear n-dimensional arc
 % usage: [xy,distance,t] = distance2curve(curvexy,mapxy) % uses linear curve segments
 % usage: [xy,distance,t] = distance2curve(curvexy,mapxy,interpmethod)

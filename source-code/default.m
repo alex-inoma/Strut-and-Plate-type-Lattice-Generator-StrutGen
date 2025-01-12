@@ -1,5 +1,10 @@
 function [f,xx,yy,zz] = default(app,lattice_prop)
 
+% Author: Alex Inoma, Osezua Ibhadode
+% e-mail: inoma@ualberta.ca
+% Release: 1.0
+% Release date: 13/01/2025
+
 drawnow;
 if app.stopFlag
     return

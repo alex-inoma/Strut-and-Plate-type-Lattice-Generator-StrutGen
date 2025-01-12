@@ -1,9 +1,9 @@
 function [p,q] = define_struts(strutType,startPoints,endPoints)
 
-%% Function use in lattgen
-% Called by:
-% a. 
-% b. 
+% Author: Alex Inoma, Osezua Ibhadode
+% e-mail: inoma@ualberta.ca
+% Release: 1.0
+% Release date: 13/01/2025
 
 switch strutType
     case "DCC-Curved"

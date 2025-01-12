@@ -1,15 +1,10 @@
 function [isovalue_new,app_t_new] = rel_den(rd_in,imported_mesh,inp,len,bre,wid,cell_len_x,cell_len_y,...
     cell_len_z,app_t,lattice_type,structure_type,out_p,x1,y1,z1,volumeFill,relDenCheck,custom_function)
  
-%% Function use in lattgen
-% Calls:
-% a. Implicit Model Function
-% b. STLread
-% c. STLVolume
-%
-% Called by:
-% a. Imp Model
-% b. Grading
+% Author: Alex Inoma, Osezua Ibhadode
+% e-mail: inoma@ualberta.ca
+% Release: 1.0
+% Release date: 13/01/2025
 
 switch volumeFill
     case "Fill Above Isovalue"
