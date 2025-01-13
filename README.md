@@ -2,7 +2,7 @@
 
 StrutGen is a standalone MATLAB-based lattice generation tool, driven by cartesian coordinates, and designed to provide extensive control over the topology, generation, and file export processes for strut-based and plate-type structures. It offers flexibility in cell design through parameters such as cell size, periodicity, thickness, and relative density.
 
-![StrutGen description](StrutGen description.png)
+![StrutGen description](StrutGen_description.png)
 
 ## License
 
