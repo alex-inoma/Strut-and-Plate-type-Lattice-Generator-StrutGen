@@ -92,7 +92,7 @@ for i = 1:size(p1,1)
     if i == 1
         f = f1;
     else
-        f = sdfFillet(f,f1,0.1);
+        f = sdfFillet(f,f1);
     end 
 
 end

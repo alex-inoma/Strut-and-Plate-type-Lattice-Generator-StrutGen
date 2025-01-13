@@ -45,7 +45,7 @@ for i = 1:size(p1,1)
         f = f1;
     else
         %f = min(f,f1);
-        f = sdfFillet(f,f1,0.1);
+        f = sdfFillet(f,f1);
     end
 end 
 f = reshape(f,gridpoints,gridpoints,gridpoints);
