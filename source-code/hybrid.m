@@ -16,7 +16,7 @@ function f = hybrid(f,lattice_prop)
             f2 = getPlateFunction(lattice_prop);
         end
         
-        f = sdfFillet(f,f2);
+        f = sdfFillet(f,f2,0.2);
     end
 
 end

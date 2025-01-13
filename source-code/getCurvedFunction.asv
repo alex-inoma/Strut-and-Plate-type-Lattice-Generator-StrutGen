@@ -86,7 +86,7 @@ for i = 1:size(p1,1)
         [~,f2,~] = distance2curve([xp2(i,:)' yp2(i,:)' zp2(i,:)'],[x1(:) y1(:) z1(:)],'linear');
         % [f2] = distance2curve_v2([xp2(i,:)' yp2(i,:)' zp2(i,:)'],[x1(:) y1(:) z1(:)]);
 
-        f3 = sdfFillet(f1,f2,0.15);
+        f3 = sdfFillet(f1,f2,0.1);
         f1 = f3;
     end
     if i == 1

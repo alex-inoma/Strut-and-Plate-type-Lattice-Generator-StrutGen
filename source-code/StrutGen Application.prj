@@ -1,6 +1,6 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
   <configuration build-checksum="4134608838" file="G:\Shared drives\Multifunctional Design and Additive Manufacturing (MDAM)\Implicit Modelling\StrutGen\source-code\StrutGen Application.prj" location="G:\Shared drives\Multifunctional Design and Additive Manufacturing (MDAM)\Implicit Modelling\StrutGen\source-code" name="StrutGen Application" preferred-package-location="G:\Shared drives\Multifunctional Design and Additive Manufacturing (MDAM)\Implicit Modelling\StrutPlot\StrutGen-Source-Code\source-code\finalGUI\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
-    <param.appname>finalGUI</param.appname>
+    <param.appname>StrutGen</param.appname>
     <param.icon>${PROJECT_ROOT}\StrutGen Application_resources\icon.ico</param.icon>
     <param.icons>
       <file>${PROJECT_ROOT}\StrutGen Application_resources\icon_48.png</file>
@@ -16,7 +16,7 @@
     <param.description>StrutGen is a computational tool developed for the generation and export of strut- and plate-type lattice structures using the Signed Distance</param.description>
     <param.screenshot>G:\Shared drives\Multifunctional Design and Additive Manufacturing (MDAM)\Implicit Modelling\StrutGen\Logo.jpg</param.screenshot>
     <param.guid />
-    <param.installpath.string>\University of Alberta\finalGUI\</param.installpath.string>
+    <param.installpath.string>\University of Alberta\StrutGen\</param.installpath.string>
     <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
     <param.logo />
     <param.install.notes />
@@ -103,7 +103,7 @@
     </fileset.depfun>
     <build-deliverables>
       <file location="${PROJECT_ROOT}\StrutGen Application\for_testing" name="splash.png" optional="false">G:\Shared drives\Multifunctional Design and Additive Manufacturing (MDAM)\Implicit Modelling\StrutGen\source-code\StrutGen Application\for_testing\splash.png</file>
-      <file location="${PROJECT_ROOT}\StrutGen Application\for_testing" name="finalGUI.exe" optional="false">G:\Shared drives\Multifunctional Design and Additive Manufacturing (MDAM)\Implicit Modelling\StrutGen\source-code\StrutGen Application\for_testing\finalGUI.exe</file>
+      <file location="${PROJECT_ROOT}\StrutGen Application\for_testing" name="StrutGen.exe" optional="false">G:\Shared drives\Multifunctional Design and Additive Manufacturing (MDAM)\Implicit Modelling\StrutGen\source-code\StrutGen Application\for_testing\StrutGen.exe</file>
       <file location="${PROJECT_ROOT}\StrutGen Application\for_testing" name="readme.txt" optional="true">G:\Shared drives\Multifunctional Design and Additive Manufacturing (MDAM)\Implicit Modelling\StrutGen\source-code\StrutGen Application\for_testing\readme.txt</file>
     </build-deliverables>
     <workflow />

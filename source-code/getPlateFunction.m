@@ -28,16 +28,17 @@ a = normal_vector(:,1);
 b = normal_vector(:,2);
 c = normal_vector(:,3);
 
-% Compute the Signed Distance Function (SDF)
-% SDF = (a*x + b*y + c*z + d) / ||[a, b, c]||
-
 
 for i = 1:size(plate_coeff,1)
     f1 = abs(x1(:) * a(i) + y1(:) * b(i) + z1(:) * c(i) + d(i));
     if i == 1
         f = f1;
     else
-        f = min(f,f1);
+        if strcmp(plate_type,"Diamond-Plate")
+            f = sdfFillet(f,f1,0.3);
+        else
+            f = sdfFillet(f,f1,0.15);
+        end
     end 
 end
 f = reshape(f,gridpoints,gridpoints,gridpoints);
