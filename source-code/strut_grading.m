@@ -1,5 +1,9 @@
 function [isovalue,isovalue_ext,isovalue_int] = strut_grading(app,equation_type,m1,m2,m3,m4,radius,thickness,thickness2,cell_len,xx,yy,zz,posX,posY,posZ,Inner,Outer,Inner2,Outer2)
 
+% Author: Alex Inoma, Osezua Ibhadode
+% e-mail: inoma@ualberta.ca
+% Release: 1.0
+% Release date: 13/01/2025
 
 drawnow;
 if app.stopFlag

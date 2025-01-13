@@ -1,5 +1,10 @@
 function f = getStraightFunction(lattice_prop)
 
+% Author: Alex Inoma, Osezua Ibhadode
+% e-mail: inoma@ualberta.ca
+% Release: 1.0
+% Release date: 13/01/2025
+
 gridpoints = lattice_prop.gridpoints;
 strutType = lattice_prop.structure;
 customStart = lattice_prop.customStart;

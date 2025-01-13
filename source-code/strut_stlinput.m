@@ -1,13 +1,9 @@
 function [out_p,x,y,z,x1,y1,z1] = strut_stlinput(inp,gridpoint1, gridpoint2,gridpoint3)
 
-%% Function use in lattgen
-% Calls:
-% a. STLread
-% b. Intriangulation
-%
-% Called by:
-% a. Implicit Model
-% b. 
+% Author: Alex Inoma, Osezua Ibhadode
+% e-mail: inoma@ualberta.ca
+% Release: 1.0
+% Release date: 13/01/2025
 
 st = stlread(inp); %div = round(gridpoints/10);
 

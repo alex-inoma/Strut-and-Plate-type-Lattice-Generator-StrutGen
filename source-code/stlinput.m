@@ -1,4 +1,10 @@
 function [out_p,x,y,z] = stlinput(app,inp,gridpoints)
+
+% Author: Alex Inoma, Osezua Ibhadode
+% e-mail: inoma@ualberta.ca
+% Release: 1.0
+% Release date: 13/01/2025
+
 st = stlread(inp);
 
 % get stl vertices

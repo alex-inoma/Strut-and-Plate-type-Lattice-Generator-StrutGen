@@ -1,6 +1,11 @@
 function [f,xx,yy,zz] = GenerateStructure(app,dimX,dimY,dimZ,cellX,cellY,cellZ,grid,topology,topology2,curve,curve_control,curve_control_2,startpoints,endpoints,thickness,thickness2, ...
     hybrid,hollow,Outer,Inner,Outer2,Inner2,importedMesh,fileName,CompressiveSample,height,DensityType,GradingEquation,radius,coefficientA,coefficientB,coefficientC,coefficientD,refPosX,refPosY,refPosZ)
 
+% Author: Alex Inoma, Osezua Ibhadode
+% e-mail: inoma@ualberta.ca
+% Release: 1.0
+% Release date: 13/01/2025
+
    %% Initializing Parameters and Geometry
                 
 
@@ -102,38 +107,18 @@ function [f,xx,yy,zz] = GenerateStructure(app,dimX,dimY,dimZ,cellX,cellY,cellZ,g
                         isovalue = 2*f;
                     end
                 end
-                if strcmp(hollow,"Hollow") && strcmp(CompressiveSample,"No")
+                if strcmp(hollow,"Hollow") 
                     f = (f-isovalue_ext).*-(f-isovalue_int);
-                elseif strcmp(CompressiveSample,"No") && strcmp(hollow,"Solid")
+                else
                     f = isovalue-f;
-                elseif strcmpi(CompressiveSample,"Yes")
-                    
-                    %% Old Solid Domain Implementation
-                    % lattice_prop.dim = [dimX,dimY,height]; 
-                    % lattice_prop.cell_len = [cellX,cellY,height];
-                    % lattice_prop.gridpoints = grid;
-                    % lattice_prop.lattice_type = 'Solid';
-                    % drawnow;
-                    % if app.stopFlag == 0
-                    %     [f1,~,~,~] = default(app,lattice_prop);
-                    % end
-                    
-                    %% New Solid Domain Implementation
+                end
+                if strcmpi(CompressiveSample,"Yes") % Sandwich Structure
                     f1 = ones([size(f,1),size(f,2),grid]);
-
-                    if strcmp(hollow,"Solid") 
-                        f = isovalue-f;
-                    else
-                        %f = (f-isovalue_ext).*-(f-isovalue_int);
-                        f = abs(f+(Outer-Inner)/2); %Offset
-                        f = f - (Outer-Inner)/2;    %Dilate
-                    end
-
                     f2 = f1;
                     fstartz = f(:,:,1:round(size(f,3))); f1(:,:,end+1:end+round(size(f,3))) = fstartz;
                     fendz = f2(:,:,1:round(size(f2,3))); f1(:,:,end+1:end+round(size(f2,3))) = fendz;
                     f = f1;
-
+    
                     %% 3D Grid for sandwich structure
                     X = linspace(0, dimX/cellX, size(f,2));
                     Y = linspace(0, dimY/cellY, size(f,1));

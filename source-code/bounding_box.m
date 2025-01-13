@@ -1,13 +1,9 @@
 function [stp_xmax,stp_ymax,stp_zmax,stp_xmin,stp_ymin,stp_zmin] = bounding_box(inp)
 
-%% Function use in lattgen
-% Calls:
-% a. STLread
-% b. Intriangulation
-%
-% Called by:
-% a. Implicit Model
-% b. 
+% Author: Alex Inoma, Osezua Ibhadode
+% e-mail: inoma@ualberta.ca
+% Release: 1.0
+% Release date: 13/01/2025
 
 st = stlread(inp);
 
