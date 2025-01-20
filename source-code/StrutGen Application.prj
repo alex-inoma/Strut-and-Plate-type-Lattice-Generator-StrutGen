@@ -75,10 +75,32 @@
       <param.checkbox />
       <param.example />
     </unset>
-    <fileset.main />
+    <fileset.main>
+      <file>${PROJECT_ROOT}\StrutGen.mlapp</file>
+    </fileset.main>
     <fileset.resources />
     <fileset.package />
-    <fileset.depfun />
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}\bounding_box.m</file>
+      <file>${PROJECT_ROOT}\custom.m</file>
+      <file>${PROJECT_ROOT}\default.m</file>
+      <file>${PROJECT_ROOT}\define_plates.m</file>
+      <file>${PROJECT_ROOT}\define_struts.m</file>
+      <file>${PROJECT_ROOT}\distance2curve.m</file>
+      <file>${PROJECT_ROOT}\GenerateStructure.m</file>
+      <file>${PROJECT_ROOT}\getCurvedFunction.m</file>
+      <file>${PROJECT_ROOT}\getPlateFunction.m</file>
+      <file>${PROJECT_ROOT}\getStraightFunction.m</file>
+      <file>${PROJECT_ROOT}\hybrid.m</file>
+      <file>${PROJECT_ROOT}\inpolyhedron.m</file>
+      <file>${PROJECT_ROOT}\RotationCallback.m</file>
+      <file>${PROJECT_ROOT}\sdfFillet.m</file>
+      <file>${PROJECT_ROOT}\solidDomain.m</file>
+      <file>${PROJECT_ROOT}\stlVolume.m</file>
+      <file>${PROJECT_ROOT}\stlwrite2.m</file>
+      <file>${PROJECT_ROOT}\strut_grading.m</file>
+      <file>${PROJECT_ROOT}\strut_stlinput.m</file>
+    </fileset.depfun>
     <build-deliverables>
       <file location="${PROJECT_ROOT}\StrutGen Application\for_testing" name="splash.png" optional="false">G:\Shared drives\Multifunctional Design and Additive Manufacturing (MDAM)\Implicit Modelling\StrutGen\source-code\StrutGen Application\for_testing\splash.png</file>
       <file location="${PROJECT_ROOT}\StrutGen Application\for_testing" name="StrutGen.exe" optional="false">G:\Shared drives\Multifunctional Design and Additive Manufacturing (MDAM)\Implicit Modelling\StrutGen\source-code\StrutGen Application\for_testing\StrutGen.exe</file>
