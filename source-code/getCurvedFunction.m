@@ -99,7 +99,7 @@ end
 
 f = reshape(f,gridpoints,gridpoints,gridpoints); %toc
 
-if lattice_prop.union
+if lattice_prop.union %Hybrid Cells
 f = hybrid(f,lattice_prop.lattice_prop2);
 end
 
