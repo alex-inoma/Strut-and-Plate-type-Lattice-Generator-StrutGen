@@ -1,1 +1,7 @@
-Unrecognized field name "union".
+Log initialized on 22-Jan-2025 18:50:11
+[22-Jan-2025 18:55:26] Unable to open file '.stl'.
+[22-Jan-2025 18:55:41] Unable to open file '.stl'.
+[22-Jan-2025 18:57:39] Unable to open file '.stl'.
+[22-Jan-2025 18:57:42] Unable to open file '.stl'.
+[22-Jan-2025 19:05:30] Unable to open file '.stl'.
+[22-Jan-2025 19:08:10] Unable to open file '.stl'.
