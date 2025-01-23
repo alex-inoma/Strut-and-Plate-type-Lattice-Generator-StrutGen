@@ -1,5 +1,0 @@
-Unrecognized function or variable 'cell_len_x'.
-Unrecognized function or variable 'cell_len_x'.
-Arguments must be 2-D, or at least one argument must be scalar. Use RDIVIDE (./) for elementwise right divide or use PAGEMRDIVIDE to apply right matrix division to the pages of N-D arrays.
-The size of X must match the size of V or the number of columns of V.
-The size of X must match the size of V or the number of columns of V.
