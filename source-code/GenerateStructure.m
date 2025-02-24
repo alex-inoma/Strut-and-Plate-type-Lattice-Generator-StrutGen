@@ -13,10 +13,10 @@ function [f,xx,yy,zz] = GenerateStructure(app,dimX,dimY,dimZ,cellX,cellY,cellZ,g
                 lattice_prop.cell_len = [cellX,cellY,cellZ];
                 lattice_prop.gridpoints = grid;
                 lattice_prop.structure = topology;
-                lattice_prop.curvepoints = curve;
-                lattice_prop.curvecontrol = curve_control;
-                lattice_prop.customStart = startpoints; %custom
-                lattice_prop.customEnd = endpoints; %custom
+                lattice_prop.curvepoints = curve;           %Controls the accuracy of the curvature approximation
+                lattice_prop.curvecontrol = curve_control;  %Controls the angle of curvature
+                lattice_prop.customStart = startpoints;     %custom
+                lattice_prop.customEnd = endpoints;         %custom
                 if strcmp(hollow,"Hollow")
                     isovalue_ext = (2/min(lattice_prop.cell_len))*Outer/2; isovalue_int = (2/min(lattice_prop.cell_len))*(Inner)/2;
                 else
@@ -47,14 +47,14 @@ function [f,xx,yy,zz] = GenerateStructure(app,dimX,dimY,dimZ,cellX,cellY,cellZ,g
                 else
                     lattice_type2 = 'Straight Strut';
                 end
-                
+                %Hybridizing cells
                 lattice_prop.lattice_prop2.lattice_type = lattice_type2;
                 lattice_prop.lattice_prop2.union = lattice_prop.union;
                 lattice_prop.lattice_prop2.structure = structure2;
                 lattice_prop.lattice_prop2.cell_len = lattice_prop.cell_len;
                 lattice_prop.lattice_prop2.gridpoints = lattice_prop.gridpoints;
-                lattice_prop.lattice_prop2.customStart = startpoints; %custom
-                lattice_prop.lattice_prop2.customEnd = endpoints; %custom
+                lattice_prop.lattice_prop2.customStart = startpoints;           %custom
+                lattice_prop.lattice_prop2.customEnd = endpoints;               %custom
                 lattice_prop.lattice_prop2.curvecontrol = curve_control_2;
                 lattice_prop.lattice_prop2.curvepoints = curve;
                 lattice_prop.i = 0;
@@ -113,10 +113,10 @@ function [f,xx,yy,zz] = GenerateStructure(app,dimX,dimY,dimZ,cellX,cellY,cellZ,g
                     f = isovalue-f;
                 end
                 if strcmpi(CompressiveSample,"Yes") % Sandwich Structure
-                    f1 = ones([size(f,1),size(f,2),grid]);
+                    f1 = ones([size(f,1),size(f,2),grid]); %Establish the solid sections
                     f2 = f1;
-                    fstartz = f(:,:,1:round(size(f,3))); f1(:,:,end+1:end+round(size(f,3))) = fstartz;
-                    fendz = f2(:,:,1:round(size(f2,3))); f1(:,:,end+1:end+round(size(f2,3))) = fendz;
+                    fstartz = f(:,:,1:round(size(f,3))); f1(:,:,end+1:end+round(size(f,3))) = fstartz; %Bottom layer
+                    fendz = f2(:,:,1:round(size(f2,3))); f1(:,:,end+1:end+round(size(f2,3))) = fendz;  %Top layer
                     f = f1;
     
                     %% 3D Grid for sandwich structure
