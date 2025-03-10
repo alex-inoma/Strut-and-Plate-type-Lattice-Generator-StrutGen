@@ -19,7 +19,7 @@ edofVec = reshape(3*nodenrs(1:end-1,1:end-1,1:end-1)+1,nel,1);
 addx = [0 1 2 3*nelx+[3 4 5 0 1 2] -3 -2 -1];
 addxy = 3*(nely+1)*(nelx+1)+addx;
 edof = repmat(edofVec,1,24) + repmat([addx addxy],nel,1);
-%% IMPOOSE PERIODIC BOUNDARY CONDITIONS
+%% IMPOSE PERIODIC BOUNDARY CONDITIONS
 % Use original edofMat to index into list with the periodic dofs
 nn = (nelx+1)*(nely+1)*(nelz+1); % Total number of nodes
 nnP = (nelx)*(nely)*(nelz);    % Total number of unique nodes
