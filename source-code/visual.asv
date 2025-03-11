@@ -1,5 +1,5 @@
 % input the homogenized elasticity tensor
-function [x,y,z,c,tensor,E,PR] = visual(CH)
+function [x,y,z,c,tensor,E] = visual(CH)
 % transform it to 3*3*3*3 tensor
 tensor = generate(CH);
 % find the E1 in 360 degree

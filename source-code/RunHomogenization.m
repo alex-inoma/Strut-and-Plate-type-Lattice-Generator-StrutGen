@@ -1,4 +1,4 @@
-function [x,y,z,c] = RunHomogenization(app,cellX,cellY,cellZ,grid,topology,topology2,E,NU,curve,curve_control,curve_control_2,startpoints,endpoints,thickness,thickness2, ...
+function [x,y,z,c,CM,YM,PR] = RunHomogenization(app,cellX,cellY,cellZ,grid,topology,topology2,E,NU,curve,curve_control,curve_control_2,startpoints,endpoints,thickness,thickness2, ...
     hybrid,hollow,Outer,Inner,Outer2,Inner2,DensityType,GradingEquation,radius,coefficientA,coefficientB,coefficientC,coefficientD,refPosX,refPosY,refPosZ)
 
 % Author: Alex Inoma, Osezua Ibhadode
@@ -96,5 +96,5 @@ function [x,y,z,c] = RunHomogenization(app,cellX,cellY,cellZ,grid,topology,topol
 lx = cellX; ly = cellY; lz = cellZ; voxel = ff;
 lambda = (E*NU)/((1+NU)*(1-2*NU)); mu = E/(2*(1+NU)); % Lame's parameters
 CH = homo3D(lx,ly,lz,lambda,mu,voxel);
-[x,y,z,c] = visual(CH);              
+[x,y,z,c,CM,YM,PR] = visual(CH);              
 end
