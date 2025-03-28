@@ -22,3 +22,5 @@ Log initialized on 22-Jan-2025 18:50:11
 [10-Mar-2025 17:21:52] 'Value' must be a character vector or a string scalar.
 [10-Mar-2025 17:22:51] 'Value' must be a character vector or a string scalar.
 [10-Mar-2025 17:24:03] 'Value' must be a character vector or a string scalar.
+[12-Mar-2025 15:59:55] Index in position 2 exceeds array bounds. Index must not exceed 1.
+[12-Mar-2025 16:01:50] Index in position 2 exceeds array bounds. Index must not exceed 1.
