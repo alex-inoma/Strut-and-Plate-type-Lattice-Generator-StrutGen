@@ -14,3 +14,13 @@ Log initialized on 22-Jan-2025 18:50:11
 [24-Jan-2025 12:13:55] Index in position 2 exceeds array bounds.
 [24-Jan-2025 12:14:38] Requested 930x1800x1440 (18.0GB) array exceeds maximum array size preference (15.7GB). This might cause MATLAB to become unresponsive.
 [24-Jan-2025 12:14:40] Requested 930x1800x1440 (18.0GB) array exceeds maximum array size preference (15.7GB). This might cause MATLAB to become unresponsive.
+[10-Mar-2025 10:34:52] Insufficient number of outputs from right hand side of equal sign to satisfy assignment.
+[10-Mar-2025 17:02:28] 'Value' must be a character vector or a string scalar.
+[10-Mar-2025 17:18:32] 'Value' must be a character vector or a string scalar.
+[10-Mar-2025 17:19:28] 'Value' must be a character vector or a string scalar.
+[10-Mar-2025 17:20:38] 'Value' must be a character vector or a string scalar.
+[10-Mar-2025 17:21:52] 'Value' must be a character vector or a string scalar.
+[10-Mar-2025 17:22:51] 'Value' must be a character vector or a string scalar.
+[10-Mar-2025 17:24:03] 'Value' must be a character vector or a string scalar.
+[12-Mar-2025 15:59:55] Index in position 2 exceeds array bounds. Index must not exceed 1.
+[12-Mar-2025 16:01:50] Index in position 2 exceeds array bounds. Index must not exceed 1.

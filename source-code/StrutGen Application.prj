@@ -91,15 +91,19 @@
       <file>${PROJECT_ROOT}\getCurvedFunction.m</file>
       <file>${PROJECT_ROOT}\getPlateFunction.m</file>
       <file>${PROJECT_ROOT}\getStraightFunction.m</file>
+      <file>${PROJECT_ROOT}\homo3D.m</file>
+      <file>${PROJECT_ROOT}\homoDefault.m</file>
       <file>${PROJECT_ROOT}\hybrid.m</file>
       <file>${PROJECT_ROOT}\inpolyhedron.m</file>
-      <file>${PROJECT_ROOT}\RotationCallback.m</file>
+      <file>${PROJECT_ROOT}\RunHomogenization.m</file>
       <file>${PROJECT_ROOT}\sdfFillet.m</file>
       <file>${PROJECT_ROOT}\solidDomain.m</file>
       <file>${PROJECT_ROOT}\stlVolume.m</file>
       <file>${PROJECT_ROOT}\stlwrite2.m</file>
       <file>${PROJECT_ROOT}\strut_grading.m</file>
       <file>${PROJECT_ROOT}\strut_stlinput.m</file>
+      <file>${PROJECT_ROOT}\transform.m</file>
+      <file>${PROJECT_ROOT}\visual.m</file>
     </fileset.depfun>
     <build-deliverables>
       <file location="${PROJECT_ROOT}\StrutGen Application\for_testing" name="splash.png" optional="false">G:\Shared drives\Multifunctional Design and Additive Manufacturing (MDAM)\Implicit Modelling\StrutGen\source-code\StrutGen Application\for_testing\splash.png</file>

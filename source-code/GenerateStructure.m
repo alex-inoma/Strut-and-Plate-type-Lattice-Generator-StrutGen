@@ -129,5 +129,5 @@ function [f,xx,yy,zz] = GenerateStructure(app,dimX,dimY,dimZ,cellX,cellY,cellZ,g
                     [xx,yy,zz] = meshgrid(X,Y,Z);
                 end
                 
-                
+              
 end

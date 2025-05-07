@@ -1,15 +1,14 @@
-function [f,xx,yy,zz] = GenerateStructure(app,dimX,dimY,dimZ,cellX,cellY,cellZ,grid,topology,topology2,curve,curve_control,curve_control_2,startpoints,endpoints,thickness,thickness2, ...
-    hybrid,hollow,Outer,Inner,Outer2,Inner2,importedMesh,fileName,CompressiveSample,height,DensityType,GradingEquation,radius,coefficientA,coefficientB,coefficientC,coefficientD,refPosX,refPosY,refPosZ)
+function [x,y,z,c,CM,YM,PR] = RunHomogenization(app,cellX,cellY,cellZ,grid,topology,topology2,E,NU,curve,curve_control,curve_control_2,startpoints,endpoints,thickness,thickness2, ...
+    hybrid,hollow,Outer,Inner,Outer2,Inner2,DensityType,GradingEquation,radius,coefficientA,coefficientB,coefficientC,coefficientD,refPosX,refPosY,refPosZ)
 
 % Author: Alex Inoma, Osezua Ibhadode
 % e-mail: inoma@ualberta.ca
 % Release: 1.0
 % Release date: 13/01/2025
 
-   %% Initializing Parameters and Geometry
+%% Initializing Parameters and Geometry
                 
-
-                lattice_prop.dim = [dimX,dimY,dimZ]; 
+                lattice_prop.dim = [cellX,cellY,cellZ];
                 lattice_prop.cell_len = [cellX,cellY,cellZ];
                 lattice_prop.gridpoints = grid;
                 lattice_prop.structure = topology;
@@ -29,8 +28,7 @@ function [f,xx,yy,zz] = GenerateStructure(app,dimX,dimY,dimZ,cellX,cellY,cellZ,g
                 else
                     lattice_prop.lattice_type = 'Straight Strut';
                 end
-                 
-                
+
 
                 %% Cell Union
                 if strcmp(hybrid,"Combined")
@@ -62,25 +60,12 @@ function [f,xx,yy,zz] = GenerateStructure(app,dimX,dimY,dimZ,cellX,cellY,cellZ,g
                 lattice_prop.lattice_prop2.i = 0;
                 
                 %% Custom Domain
-                if strcmpi(importedMesh,"Yes")
-
-                drawnow;
-                if app.stopFlag == 0
-                    if contains(fileName,'.stl') || contains(fileName,'.STL')
-                    inp = fileName;
-                    else
-                    inp= strcat(fileName, '.stl');
-                    end
-                    [f,xx,yy,zz] = custom(app,lattice_prop,inp);
-                end
                 
-                else
 
                 %% Default Domain
                 drawnow;
                 if app.stopFlag == 0
-                    [f,xx,yy,zz] = default(app,lattice_prop);
-                end
+                    [ff,xx,yy,zz] = homoDefault(app,lattice_prop);
                 end
 
                 %% Grading
@@ -100,54 +85,16 @@ function [f,xx,yy,zz] = GenerateStructure(app,dimX,dimY,dimZ,cellX,cellY,cellZ,g
 
                 %% Generate Iso-surfaces
                 drawnow;
-                if app.stopFlag == 0
-                    if strcmpi(lattice_prop.lattice_type,'Solid') && strcmpi(imported_mesh,'Yes')
-                        isovalue = 1;
-                    elseif strcmpi(lattice_prop.lattice_type,'Solid') 
-                        isovalue = 2*f;
-                    end
+                if strcmp(hollow,"Hollow") 
+                    ff = (ff-isovalue_ext).*-(ff-isovalue_int);
+                    ff(ff>0) = 1; ff(ff~=1) = 0;
+                else
+                    ff = isovalue-ff; ff(ff>0) = 1; ff(ff~=1) = 0;
                 end
-                if strcmp(hollow,"Hollow") && strcmp(CompressiveSample,"No")
-                    f = (f-isovalue_ext).*-(f-isovalue_int);
-                elseif strcmp(CompressiveSample,"No") && strcmp(hollow,"Solid")
-                    f = isovalue-f;
-                elseif strcmpi(CompressiveSample,"Yes")
-                    
-                    %% Old Solid Domain Implementation
-                    % lattice_prop.dim = [dimX,dimY,height]; 
-                    % lattice_prop.cell_len = [cellX,cellY,height];
-                    % lattice_prop.gridpoints = grid;
-                    % lattice_prop.lattice_type = 'Solid';
-                    % drawnow;
-                    % if app.stopFlag == 0
-                    %     [f1,~,~,~] = default(app,lattice_prop);
-                    % end
-                    
-                    %% New Solid Domain Implementation
-                    f1 = ones([size(f,1),size(f,2),grid]);
 
-                    if strcmp(hollow,"Solid") 
-                        f = isovalue-f;
-                    else
-                        f = (f-isovalue_ext).*-(f-isovalue_int);
-                        %f = abs(f+(Outer-Inner)/2); %Offset
-                        %f = f - (Outer-Inner)/2;    %Dilate
-                    end
-
-                    f2 = f1;
-                    fstartz = f(:,:,1:round(size(f,3))); f1(:,:,end+1:end+round(size(f,3))) = fstartz;
-                    fendz = f2(:,:,1:round(size(f2,3))); f1(:,:,end+1:end+round(size(f2,3))) = fendz;
-                    f = f1;
-
-                    %% 3D Grid for sandwich structure
-                    X = linspace(0, dimX/cellX, size(f,2));
-                    Y = linspace(0, dimY/cellY, size(f,1));
-                    Z1 = linspace(0,height/cellZ,round(grid)); % Plate 1
-                    Z2 = linspace(height/cellZ, (dimZ+height)/(cellZ), (size(f,3)-(2*round(grid)))); % Lattice (enforcing conditions for plate-type)
-                    Z3 = linspace(((dimZ+height)/cellZ),(dimZ+(2*height))/cellZ,round(grid)); % Plate 2
-                    Z = [Z1 Z2 Z3];
-                    [xx,yy,zz] = meshgrid(X,Y,Z);
-                end
                 
-                
+lx = cellX; ly = cellY; lz = cellZ; voxel = ff;
+lambda = (E*NU)/((1+NU)*(1-2*NU)); mu = E/(2*(1+NU)); % Lame's parameters
+CH = homo3D(lx,ly,lz,lambda,mu,voxel);
+[x,y,z,c,CM,YM,PR] = visual(CH);              
 end
